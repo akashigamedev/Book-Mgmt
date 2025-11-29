@@ -21,7 +21,7 @@ func Connect() {
 		panic("database environments are not set!")
 	}
 
-	dsn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v", user, pass, host, port, name)
+	dsn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?parseTime=true&loc=Local", user, pass, host, port, name)
 	fmt.Println("DSN", dsn)
 	d, err := gorm.Open("mysql", dsn)
 	if err != nil {
